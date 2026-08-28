@@ -201,3 +201,103 @@ html.lenis, html.lenis body {
   padding: 1.75rem;
   box-shadow: 0 0 35px rgba(56, 189, 248, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }
+
+/* ==========================================================================
+   Cyber Line Inputs with Topline & Underline Animation (Uiverse.io style)
+   ========================================================================== */
+.cyber-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.cyber-input-container .cyber-input-field {
+  padding: 12px 14px;
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #38BDF8;
+  border-top: none;
+  border-bottom: none;
+  font-size: 15px;
+  font-family: var(--font-mono);
+  background: rgba(12, 12, 18, 0.6);
+  color: #ffffff;
+  outline: none;
+  box-shadow: 6px 6px 0px 0px rgba(56, 189, 248, 0.45);
+  transition: all 0.4s ease;
+  border-radius: 2px;
+}
+
+.cyber-input-container textarea.cyber-input-field {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.cyber-input-container .cyber-input-field:focus {
+  box-shadow: none;
+  background: rgba(18, 18, 28, 0.9);
+  transition: all 0.4s ease;
+}
+
+.cyber-input-container .cyber-input-label {
+  position: absolute;
+  top: 13px;
+  left: 14px;
+  color: #38BDF8;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  transform: scale(0.9);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cyber-input-container .topline {
+  position: absolute;
+  content: "";
+  background-color: #38BDF8;
+  width: 0%;
+  height: 2px;
+  right: 0;
+  top: 0;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+}
+
+.cyber-input-container .cyber-input-field:focus ~ .topline,
+.cyber-input-container.is-active .topline {
+  width: 35%;
+  transition: all 0.4s ease;
+}
+
+.cyber-input-container .underline {
+  position: absolute;
+  content: "";
+  background-color: #38BDF8;
+  width: 0%;
+  height: 2px;
+  right: 0;
+  bottom: 0;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+}
+
+.cyber-input-container .cyber-input-field:focus ~ .underline,
+.cyber-input-container.is-active .underline {
+  width: 100%;
+  transition: all 0.4s ease;
+}
+
+.cyber-input-container .cyber-input-field:focus ~ .cyber-input-label,
+.cyber-input-container.is-active .cyber-input-label {
+  top: -12px;
+  left: 6px;
+  transform: scale(0.92);
+  opacity: 1;
+  font-weight: bold;
+  background: #07070d;
+  padding: 0 6px;
+  transition: all 0.4s ease;
+}

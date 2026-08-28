@@ -197,91 +197,73 @@ export default function ContactSection() {
               Fill out the form below and I will respond to your inbox as soon as possible.
             </p>
             
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               
-              {/* Name */}
-              <div className="relative">
+              {/* Name Input with Topline & Underline Animation */}
+              <div className={`cyber-input-container ${formState.name ? 'is-active' : ''}`}>
                 <input
                   type="text"
                   name="name"
                   id="contact-name"
                   required
-                  placeholder=" "
                   value={formState.name}
                   onChange={handleChange}
                   onFocus={() => setFocused('name')}
                   onBlur={() => setFocused(null)}
-                  className="w-full bg-white/[0.02] border border-white/[0.1] rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:bg-white/[0.05] focus:border-[#38BDF8]/50 transition-all peer shadow-inner"
+                  className="cyber-input-field"
                 />
-                <label 
-                  htmlFor="contact-name" 
-                  className={`absolute left-4 transition-all duration-200 font-mono uppercase tracking-wider pointer-events-none ${
-                    focused === 'name' || formState.name 
-                      ? 'top-[-8px] text-[10px] text-[#38BDF8] bg-black px-2 rounded-full font-bold' 
-                      : 'top-3.5 text-xs text-white/40'
-                  }`}
-                >
-                  Your Name
+                <label htmlFor="contact-name" className="cyber-input-label">
+                  Enter Your Name
                 </label>
+                <div className="topline" />
+                <div className="underline" />
               </div>
 
-              {/* Email */}
-              <div className="relative">
+              {/* Email Input with Topline & Underline Animation */}
+              <div className={`cyber-input-container ${formState.email ? 'is-active' : ''}`}>
                 <input
                   type="email"
                   name="email"
                   id="contact-email"
                   required
-                  placeholder=" "
                   value={formState.email}
                   onChange={handleChange}
                   onFocus={() => setFocused('email')}
                   onBlur={() => setFocused(null)}
-                  className="w-full bg-white/[0.02] border border-white/[0.1] rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:bg-white/[0.05] focus:border-[#38BDF8]/50 transition-all peer shadow-inner"
+                  className="cyber-input-field"
                 />
-                <label 
-                  htmlFor="contact-email" 
-                  className={`absolute left-4 transition-all duration-200 font-mono uppercase tracking-wider pointer-events-none ${
-                    focused === 'email' || formState.email 
-                      ? 'top-[-8px] text-[10px] text-[#38BDF8] bg-black px-2 rounded-full font-bold' 
-                      : 'top-3.5 text-xs text-white/40'
-                  }`}
-                >
-                  Your Email
+                <label htmlFor="contact-email" className="cyber-input-label">
+                  Enter Your Email
                 </label>
+                <div className="topline" />
+                <div className="underline" />
               </div>
 
-              {/* Message */}
-              <div className="relative">
+              {/* Message Textarea with Topline & Underline Animation */}
+              <div className={`cyber-input-container ${formState.message ? 'is-active' : ''}`}>
                 <textarea
                   name="message"
                   id="contact-message"
                   required
                   rows={4}
-                  placeholder=" "
                   value={formState.message}
                   onChange={handleChange}
                   onFocus={() => setFocused('message')}
                   onBlur={() => setFocused(null)}
-                  className="w-full bg-white/[0.02] border border-white/[0.1] rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:bg-white/[0.05] focus:border-[#38BDF8]/50 transition-all peer resize-none shadow-inner"
+                  className="cyber-input-field"
                 />
-                <label 
-                  htmlFor="contact-message" 
-                  className={`absolute left-4 transition-all duration-200 font-mono uppercase tracking-wider pointer-events-none ${
-                    focused === 'message' || formState.message 
-                      ? 'top-[-8px] text-[10px] text-[#38BDF8] bg-black px-2 rounded-full font-bold' 
-                      : 'top-3.5 text-xs text-white/40'
-                  }`}
-                >
-                  Your Message
+                <label htmlFor="contact-message" className="cyber-input-label">
+                  Enter Your Message
                 </label>
+                <div className="topline" />
+                <div className="underline" />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting || isSubmitted}
-                className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#38BDF8] via-[#a78bfa] to-[#38BDF8] text-black font-bold text-sm tracking-wider font-mono hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(56,189,248,0.3)] disabled:opacity-50 disabled:cursor-not-allowed group"
+                className="w-full py-4 mt-2 rounded-2xl bg-gradient-to-r from-[#38BDF8] via-[#a78bfa] to-[#38BDF8] text-black font-bold text-sm tracking-wider font-mono hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(56,189,248,0.3)] disabled:opacity-50 disabled:cursor-not-allowed group"
               >
                 {isSubmitted ? (
                   <>
