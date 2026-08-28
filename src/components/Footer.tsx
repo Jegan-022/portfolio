@@ -1,5 +1,5 @@
 import GlassCard from "./GlassCard";
-import { Github, Linkedin, Mail, ArrowUp, Sparkles, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         <GlassCard tilt={false} className="w-full py-16 px-6 sm:px-10 flex flex-col items-center text-center justify-center relative overflow-hidden group">
           
-          {/* Subtle Top Indicator */}
+          {/* Back to top Button */}
           <button
             onClick={scrollToTop}
             className="mb-8 p-3 rounded-full bg-white/[0.04] border border-white/10 hover:border-white/30 text-white/60 hover:text-white transition-all hover:scale-110 shadow-lg group/top"
@@ -45,26 +45,40 @@ export default function Footer() {
             <span className="font-mono text-xs sm:text-sm">priyajegan1222@gmail.com</span>
           </a>
           
-          {/* Social Dock */}
-          <div className="flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-white/[0.02] border border-white/[0.08] backdrop-blur-xl mb-12 shadow-inner">
+          {/* 3D Flipping Cube Social Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12">
+            {/* GitHub 3D Cube Button */}
             <a 
               href="https://github.com/Jegan-022" 
               target="_blank" 
               rel="noopener noreferrer" 
-              aria-label="GitHub Profile"
-              className="w-10 h-10 flex items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/[0.1] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all hover:scale-110"
+              className="uiverse-btn-icon uiverse-btn-github"
+              aria-label="Visit GitHub Profile"
             >
-              <Github className="w-4 h-4" />
+              <div className="icon-box">
+                <Github className="w-5 h-5" />
+              </div>
+              <div className="cube-box">
+                <span className="cube-side cube-front">GitHub</span>
+                <span className="cube-side cube-top">View Profile</span>
+              </div>
             </a>
-            <div className="w-[1px] h-4 bg-white/10" />
+
+            {/* LinkedIn 3D Cube Button */}
             <a 
               href="https://www.linkedin.com/in/jegatheeswaran-r-9a122633b/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              aria-label="LinkedIn Profile"
-              className="w-10 h-10 flex items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/[0.1] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all hover:scale-110"
+              className="uiverse-btn-icon uiverse-btn-linkedin"
+              aria-label="Connect on LinkedIn"
             >
-              <Linkedin className="w-4 h-4" />
+              <div className="icon-box">
+                <Linkedin className="w-5 h-5" />
+              </div>
+              <div className="cube-box">
+                <span className="cube-side cube-front">LinkedIn</span>
+                <span className="cube-side cube-top">Connect</span>
+              </div>
             </a>
           </div>
           

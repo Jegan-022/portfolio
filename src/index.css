@@ -41,3 +41,105 @@ html.lenis, html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* ==========================================================================
+   3D Flipping Cube Buttons (Uiverse.io by aguerquin)
+   ========================================================================== */
+.uiverse-btn-icon {
+  display: flex;
+  align-items: stretch;
+  border: 2px solid #ffffff40;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  background: #111116;
+  text-decoration: none;
+}
+
+.uiverse-btn-icon .icon-box {
+  background-color: #ffffff;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111116;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.uiverse-btn-icon .icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.uiverse-btn-icon .cube-box {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  width: 150px;
+  height: 44px;
+}
+
+@media (min-width: 640px) {
+  .uiverse-btn-icon .cube-box {
+    width: 170px;
+  }
+}
+
+.uiverse-btn-icon:hover .cube-box {
+  transform: rotateX(90deg);
+}
+
+.uiverse-btn-icon .cube-side {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: bold;
+  font-family: var(--font-mono);
+  box-sizing: border-box;
+}
+
+/* GitHub Specific */
+.uiverse-btn-github:hover {
+  border-color: #38BDF8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+}
+
+.uiverse-btn-github .cube-top {
+  background: #38BDF8;
+  color: #000000;
+  transform: rotateX(-90deg) translate3d(0, 0, 22px);
+}
+
+.uiverse-btn-github .cube-front {
+  background: #18181f;
+  color: #ffffff;
+  transform: translate3d(0, 0, 22px);
+}
+
+/* LinkedIn Specific */
+.uiverse-btn-linkedin:hover {
+  border-color: #8B5CF6;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+}
+
+.uiverse-btn-linkedin .cube-top {
+  background: #8B5CF6;
+  color: #ffffff;
+  transform: rotateX(-90deg) translate3d(0, 0, 22px);
+}
+
+.uiverse-btn-linkedin .cube-front {
+  background: #18181f;
+  color: #ffffff;
+  transform: translate3d(0, 0, 22px);
+}
