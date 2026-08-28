@@ -70,9 +70,8 @@ export default function Header() {
 
         <div className="pointer-events-auto flex items-center gap-2">
           <a
-            href="https://drive.google.com/file/d/1Kwk8vRo8f1as3hWSoFpkSVe9HC99qtrE/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/resume.pdf"
+            download="Jegatheeswaran_R_Resume.pdf"
             className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.05] hover:bg-[#38BDF8]/20 border border-white/10 hover:border-[#38BDF8]/40 backdrop-blur-xl text-white/90 hover:text-white text-xs font-mono transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
           >
             <FileText className="w-3.5 h-3.5 text-[#38BDF8]" />
@@ -168,13 +167,12 @@ export default function Header() {
 
             <div className="max-w-sm mx-auto w-full pt-4 border-t border-white/10 flex flex-col gap-2">
               <a
-                href="https://drive.google.com/file/d/1Kwk8vRo8f1as3hWSoFpkSVe9HC99qtrE/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/resume.pdf"
+                download="Jegatheeswaran_R_Resume.pdf"
                 className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#38BDF8]/20 to-[#8B5CF6]/20 border border-[#38BDF8]/40 text-white text-center font-mono text-sm flex items-center justify-center gap-2"
               >
                 <FileText className="w-4 h-4 text-[#38BDF8]" />
-                View & Download Resume
+                Download Resume (PDF)
               </a>
               <p className="text-center text-white/30 text-xs font-mono mt-2">© {new Date().getFullYear()} Jegatheeswaran R</p>
             </div>

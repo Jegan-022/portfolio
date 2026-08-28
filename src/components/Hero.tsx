@@ -104,14 +104,13 @@ export default function Hero() {
           </GlassButton>
           
           <a
-            href="https://drive.google.com/file/d/1Kwk8vRo8f1as3hWSoFpkSVe9HC99qtrE/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/resume.pdf"
+            download="Jegatheeswaran_R_Resume.pdf"
             className="w-full sm:w-auto"
           >
             <GlassButton className="w-full sm:w-auto">
               <Download className="w-4 h-4 mr-1 text-[#38BDF8]" />
-              <span>Resume</span>
+              <span>Download Resume</span>
             </GlassButton>
           </a>
 

@@ -1,10 +1,11 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import GlassCard from "./GlassCard";
-import { GraduationCap, Brain, Code2, Cpu, MapPin, BookOpen, Sparkles, Target, Compass, Layers } from "lucide-react";
+import { GraduationCap, Brain, Code2, Cpu, MapPin, BookOpen, Sparkles, Compass, Layers, RotateCw, Mail, Github, User, CheckCircle2 } from "lucide-react";
 
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isFlipped, setIsFlipped] = useState(false);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -36,34 +37,92 @@ export default function About() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        {/* Profile / Stats Card */}
+        {/* Profile / 3D Flipping Card Panel */}
         <motion.div style={{ y: y1 }} className="lg:col-span-5 w-full">
           <GlassCard className="w-full p-4 sm:p-6 flex flex-col group relative overflow-hidden">
             {/* Animated Aura Glow */}
             <div className="absolute -top-24 -right-24 w-72 h-72 bg-gradient-to-br from-[#38BDF8]/20 to-[#8B5CF6]/20 rounded-full blur-[70px] pointer-events-none group-hover:scale-125 transition-transform duration-700" />
             
-            {/* Holographic Avatar Showcase */}
-            <div className="relative w-full h-[280px] sm:h-[340px] rounded-3xl overflow-hidden mb-6 border border-white/10 bg-gradient-to-br from-black via-zinc-950 to-zinc-900 flex flex-col justify-between p-6">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(56,189,248,0.15),transparent_70%)]" />
-              
-              <div className="relative z-10 flex justify-between items-start">
-                <span className="px-3 py-1 rounded-full bg-white/[0.08] border border-white/10 text-[11px] font-mono text-[#38BDF8] flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  Available for Roles
-                </span>
-                <span className="text-xs font-mono text-white/40">Madurai, TN</span>
-              </div>
+            {/* 3D Flipping Card (Front: Photo, Back: Name & Details) */}
+            <div 
+              className={`about-flip-card mb-6 ${isFlipped ? 'is-flipped' : ''}`}
+              onClick={() => setIsFlipped(!isFlipped)}
+            >
+              <div className="about-flip-inner">
+                
+                {/* FRONT FACE: Photo & Monogram */}
+                <div className="about-card-face about-card-front flex flex-col justify-between">
+                  <div className="flex justify-between items-center z-10">
+                    <span className="px-3 py-1 rounded-full bg-white/[0.08] border border-white/10 text-[11px] font-mono text-[#38BDF8] flex items-center gap-1.5 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                      Available for Roles
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/40 border border-white/10 text-[10px] font-mono text-white/50">
+                      <RotateCw className="w-3 h-3 text-[#38BDF8] animate-spin" style={{ animationDuration: '6s' }} />
+                      Hover / Tap
+                    </span>
+                  </div>
 
-              {/* Monogram graphic */}
-              <div className="relative z-10 my-auto text-center">
-                <div className="inline-flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-[#38BDF8]/20 via-[#8B5CF6]/20 to-white/10 border border-white/20 shadow-[0_0_40px_rgba(56,189,248,0.25)] text-3xl sm:text-4xl font-display font-black text-white">
-                  JR
+                  {/* Photo Frame Container */}
+                  <div className="my-auto flex flex-col items-center justify-center relative z-10">
+                    <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-[#38BDF8] via-[#8B5CF6] to-[#06B6D4] shadow-[0_0_35px_rgba(56,189,248,0.35)] group-hover:scale-105 transition-transform duration-500">
+                      <div className="w-full h-full rounded-full bg-zinc-950 flex flex-col items-center justify-center overflow-hidden border-2 border-black">
+                        <div className="text-4xl sm:text-5xl font-display font-black text-transparent bg-clip-text bg-gradient-to-tr from-white via-slate-200 to-slate-400">
+                          JR
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-white/40 text-[11px] font-mono mt-3 uppercase tracking-wider">Photo / Avatar</p>
+                  </div>
+
+                  {/* Front Footer */}
+                  <div className="z-10 flex items-center justify-between pt-2 border-t border-white/10">
+                    <span className="text-xs font-mono text-white/60">Madurai, TN, India</span>
+                    <span className="text-xs font-mono text-[#38BDF8] font-bold tracking-wider">FLIP FOR INFO →</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="relative z-10">
-                <h3 className="text-xl sm:text-2xl font-display font-bold text-white mb-0.5">Jegatheeswaran R</h3>
-                <p className="text-white/60 font-mono text-xs tracking-wider uppercase">AI & ML Engineer • Full Stack Dev</p>
+                {/* BACK FACE: Name, Title, and Credentials */}
+                <div className="about-card-face about-card-back flex flex-col justify-between">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#38BDF8] font-bold">
+                      Identity Profile
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-[#38BDF8] shadow-[0_0_8px_#38BDF8]" />
+                  </div>
+
+                  <div className="my-auto space-y-3">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white tracking-tight">
+                        JEGATHEESWARAN R
+                      </h3>
+                      <p className="text-xs sm:text-sm font-mono text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] to-[#a78bfa] font-bold uppercase tracking-wider mt-0.5">
+                        AI & ML Aspirant
+                      </p>
+                    </div>
+
+                    <div className="space-y-1.5 text-xs text-white/80 font-mono pt-2 border-t border-white/10">
+                      <div className="flex items-center gap-2">
+                        <GraduationCap className="w-3.5 h-3.5 text-[#38BDF8]" />
+                        <span>B.Tech CSE (AIML) - 3rd Year</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>CGPA: 9.47 / 10.0 (KARE University)</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-3.5 h-3.5 text-[#a78bfa]" />
+                        <span>Madurai, Tamil Nadu, India</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-mono">
+                    <span className="text-white/40">priyajegan1222@gmail.com</span>
+                    <span className="text-[#38BDF8] font-bold">← FLIP</span>
+                  </div>
+                </div>
+
               </div>
             </div>
             
@@ -147,7 +206,7 @@ export default function About() {
               { icon: Code2, label: "DSA & Python", color: "text-[#a78bfa]", bg: "bg-[#a78bfa]/10" },
               { icon: Cpu, label: "IoT & Hardware", color: "text-emerald-400", bg: "bg-emerald-400/10" },
               { icon: Layers, label: "Full Stack Web", color: "text-cyan-400", bg: "bg-cyan-400/10" },
-            ].map((item, i) => {
+            ].map((item) => {
               const Icon = item.icon;
               return (
                 <div
