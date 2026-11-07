@@ -49,19 +49,7 @@ export default function About() {
               onClick={() => setIsFlipped(!isFlipped)}
             >
               <div className="about-flip-inner">
-                
-                {/* FRONT FACE: Photo & Monogram */}
-                <div className="about-card-face about-card-front flex flex-col justify-between">
-                  <div className="flex justify-between items-center z-10">
-                    <span className="px-3 py-1 rounded-full bg-white/[0.08] border border-white/10 text-[11px] font-mono text-[#38BDF8] flex items-center gap-1.5 shadow-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                      Available for Roles
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/40 border border-white/10 text-[10px] font-mono text-white/50">
-                      <RotateCw className="w-3 h-3 text-[#38BDF8] animate-spin" style={{ animationDuration: '6s' }} />
-                      Hover / Tap
-                    </span>
-                  </div>
+              
 
                   {/* Photo Frame Container */}
                   <div className="my-auto flex flex-col items-center justify-center relative z-10">
@@ -75,18 +63,12 @@ export default function About() {
                     <p className="text-white/40 text-[11px] font-mono mt-3 uppercase tracking-wider">Photo / Avatar</p>
                   </div>
 
-                  {/* Front Footer */}
-                  <div className="z-10 flex items-center justify-between pt-2 border-t border-white/10">
-                    <span className="text-xs font-mono text-white/60">Madurai, TN, India</span>
-                    <span className="text-xs font-mono text-[#38BDF8] font-bold tracking-wider">FLIP FOR INFO →</span>
-                  </div>
-                </div>
 
                 {/* BACK FACE: Name, Title, and Credentials */}
                 <div className="about-card-face about-card-back flex flex-col justify-between">
                   <div className="flex justify-between items-center">
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#38BDF8] font-bold">
-                      Identity Profile
+                     INFO
                     </span>
                     <span className="w-2 h-2 rounded-full bg-[#38BDF8] shadow-[0_0_8px_#38BDF8]" />
                   </div>
@@ -108,7 +90,7 @@ export default function About() {
                       </div>
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>CGPA: 9.47 / 10.0 (KARE University)</span>
+                        <span>CGPA: 9.47 / 10.0 (KLU University)</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <MapPin className="w-3.5 h-3.5 text-[#a78bfa]" />
@@ -188,7 +170,7 @@ export default function About() {
             </h3>
             <div className="space-y-4 text-white/70 text-sm sm:text-base font-light leading-relaxed">
               <p>
-                I am a Computer Science student dedicated to Artificial Intelligence and Machine Learning. I specialize in turning complex data and algorithmic theory into production-ready software, responsive dashboards, and smart automated systems.
+                I am a Computer Science student who specialized on Artificial Intelligence and Machine Learning. I specialize in turning complex data and algorithmic theory into production-ready software, responsive dashboards, and smart automated systems.
               </p>
               <p>
                 My foundation spans Python, Data Structures & Algorithms, Deep Learning, Natural Language Processing, and Asynchronous Web Architectures. I actively participate in hackathons (such as IEEE InnovateX 2.0) and IoT projects combining hardware sensors with real-time anomaly detection.
